@@ -28,6 +28,7 @@ class APIService {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
 			},
 		})
 		return response.json()
