@@ -15,7 +15,6 @@ class MovieAPIService {
 	getTrendingToday() {
 		const queryParams = {
 			page: 1,
-			api_key: this.apiKey,
 		}
 		return this.apiService.get(movieConstants.TRENDING_ENDPOINT, queryParams)
 	}
@@ -30,14 +29,7 @@ class MovieAPIService {
 			throw new Error('ID must be provided')
 		}
 
-		const queryParams = {
-			api_key: this.apiKey,
-		}
-
-		return this.apiService.get(
-			`${movieConstants.SINGLE_ENDPOINT}/${id}`,
-			queryParams,
-		)
+		return this.apiService.get(`${movieConstants.SINGLE_ENDPOINT}/${id}`)
 	}
 
 	/**
@@ -51,7 +43,6 @@ class MovieAPIService {
 		}
 
 		const queryParams = {
-			api_key: this.apiKey,
 			query: name,
 		}
 
